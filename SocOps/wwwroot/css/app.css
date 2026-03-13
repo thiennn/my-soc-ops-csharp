@@ -226,3 +226,268 @@ button:disabled {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+/* ==========================================================
+   StartScreen — Midnight Carnival
+   ========================================================== */
+
+.ss-container {
+    --ss-bg: #0d0f1e;
+    --ss-orb-pink: rgba(220, 40, 130, 0.20);
+    --ss-orb-amber: rgba(255, 180, 0, 0.16);
+    --ss-cream: #f2ede4;
+    --ss-muted: rgba(242, 237, 228, 0.62);
+    --ss-pink: #e0237e;
+    --ss-amber: #ffb400;
+    --ss-glass-bg: rgba(255, 255, 255, 0.055);
+    --ss-glass-border: rgba(255, 255, 255, 0.10);
+    --ss-num-ring: rgba(224, 35, 126, 0.30);
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: var(--ss-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.ss-bg-orb {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.ss-bg-orb-1 {
+    width: 65vmax;
+    height: 65vmax;
+    background: radial-gradient(circle at center, var(--ss-orb-pink) 0%, transparent 68%);
+    top: -22%;
+    right: -18%;
+    animation: ss-drift-a 15s ease-in-out infinite;
+}
+
+.ss-bg-orb-2 {
+    width: 55vmax;
+    height: 55vmax;
+    background: radial-gradient(circle at center, var(--ss-orb-amber) 0%, transparent 68%);
+    bottom: -18%;
+    left: -14%;
+    animation: ss-drift-b 19s ease-in-out infinite;
+}
+
+.ss-bg-dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.ss-content {
+    position: relative;
+    width: 100%;
+    max-width: 26rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Hero */
+
+.ss-hero {
+    text-align: center;
+    animation: ss-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ss-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ss-pink);
+    background: rgba(224, 35, 126, 0.10);
+    border: 1px solid rgba(224, 35, 126, 0.28);
+    border-radius: 99px;
+    padding: 0.3em 1em;
+    margin-bottom: 1.1rem;
+}
+
+.ss-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(4rem, 18vw, 6rem);
+    font-weight: 900;
+    line-height: 0.92;
+    color: var(--ss-cream);
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem;
+}
+
+.ss-title-em {
+    color: var(--ss-pink);
+    background: linear-gradient(125deg, var(--ss-pink) 0%, var(--ss-amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ss-subtitle {
+    font-size: 1rem;
+    color: var(--ss-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Steps */
+
+.ss-steps {
+    animation: ss-rise 0.65s 0.20s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ss-steps-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ss-muted);
+    margin: 0 0 0.8rem;
+}
+
+.ss-steps-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.ss-step {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: var(--ss-glass-bg);
+    border: 1px solid var(--ss-glass-border);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+}
+
+.ss-step-1 { animation: ss-rise 0.5s 0.30s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ss-step-2 { animation: ss-rise 0.5s 0.40s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ss-step-3 { animation: ss-rise 0.5s 0.50s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.ss-step-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(224, 35, 126, 0.12);
+    border: 1px solid var(--ss-num-ring);
+    color: var(--ss-pink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ss-step-title {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ss-cream);
+    margin-bottom: 0.15rem;
+}
+
+.ss-step-desc {
+    font-size: 0.775rem;
+    color: var(--ss-muted);
+    line-height: 1.4;
+}
+
+/* CTA */
+
+.ss-cta-wrap {
+    animation: ss-rise 0.5s 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ss-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--ss-pink) 0%, #c01870 45%, var(--ss-amber) 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 28px rgba(224, 35, 126, 0.38);
+    transition: background-position 0.4s ease, box-shadow 0.2s ease, transform 0.12s ease;
+    animation: ss-cta-glow 2.8s 1.4s ease-in-out infinite;
+}
+
+.ss-cta-btn:hover,
+.ss-cta-btn:focus-visible {
+    background-position: 100% 0%;
+    box-shadow: 0 6px 36px rgba(224, 35, 126, 0.55);
+}
+
+.ss-cta-btn:focus-visible {
+    outline: 2px solid var(--ss-amber);
+    outline-offset: 3px;
+}
+
+.ss-cta-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 14px rgba(224, 35, 126, 0.30);
+}
+
+.ss-cta-arrow {
+    font-size: 1.15rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.ss-cta-btn:hover .ss-cta-arrow,
+.ss-cta-btn:focus-visible .ss-cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Keyframes */
+
+@keyframes ss-rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ss-drift-a {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    35%       { transform: translate(-3%, 5%) scale(1.04); }
+    68%       { transform: translate(4%, -3%) scale(0.97); }
+}
+
+@keyframes ss-drift-b {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40%       { transform: translate(3%, -4%) scale(1.03); }
+    72%       { transform: translate(-2%, 3%) scale(0.98); }
+}
+
+@keyframes ss-cta-glow {
+    0%, 100% { box-shadow: 0 4px 28px rgba(224, 35, 126, 0.38); }
+    50%       { box-shadow: 0 4px 40px rgba(224, 35, 126, 0.58), 0 0 0 5px rgba(224, 35, 126, 0.10); }
+}
