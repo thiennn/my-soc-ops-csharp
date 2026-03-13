@@ -1,22 +1,69 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-    <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+<div class="start-screen">
+    <div class="start-content">
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
-            </ul>
+        <div class="start-intro">
+            <span class="start-badge"><span aria-hidden="true">✦</span> Social Bingo</span>
+            <h1 class="start-headline">
+                Meet everyone<br />
+                <span class="start-headline-accent">in the room.</span>
+            </h1>
+            <p class="start-tagline">
+                Soc Ops turns awkward introductions into a game.
+                Find people who match a square, mark your card,
+                and race to get five in a row.
+            </p>
+
+            <div class="start-steps">
+                <div class="start-step">
+                    <span class="start-step-num">1</span>
+                    <span class="start-step-text">Get a unique 5×5 card full of social questions</span>
+                </div>
+                <div class="start-step">
+                    <span class="start-step-num">2</span>
+                    <span class="start-step-text">Find someone who matches — tap the square to mark it</span>
+                </div>
+                <div class="start-step">
+                    <span class="start-step-num">3</span>
+                    <span class="start-step-text">Five in a row wins — shout Bingo!</span>
+                </div>
+            </div>
+
+            <button @onclick="OnStart" class="start-cta" aria-label="Start Playing">
+                Start Playing <span aria-hidden="true">→</span>
+            </button>
         </div>
 
-        <button
-            @onclick="OnStart"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
-        </button>
+        <div class="start-preview" aria-hidden="true">
+            <p class="start-preview-label">Sample card</p>
+            <div class="start-preview-board">
+                <div class="start-preview-cell">bikes to work</div>
+                <div class="start-preview-cell preview-marked">has a pet</div>
+                <div class="start-preview-cell">plays guitar</div>
+                <div class="start-preview-cell preview-marked">loves coffee</div>
+                <div class="start-preview-cell">speaks 2+ languages</div>
+                <div class="start-preview-cell">born abroad</div>
+                <div class="start-preview-cell preview-marked">ran a marathon</div>
+                <div class="start-preview-cell">been to Asia</div>
+                <div class="start-preview-cell">can juggle</div>
+                <div class="start-preview-cell preview-marked">loves cooking</div>
+                <div class="start-preview-cell">has a twin</div>
+                <div class="start-preview-cell">does yoga</div>
+                <div class="start-preview-cell preview-free">FREE</div>
+                <div class="start-preview-cell">plays video games</div>
+                <div class="start-preview-cell">collects things</div>
+                <div class="start-preview-cell preview-marked">met a celebrity</div>
+                <div class="start-preview-cell">left-handed</div>
+                <div class="start-preview-cell">has a garden</div>
+                <div class="start-preview-cell preview-marked">loves spicy food</div>
+                <div class="start-preview-cell">went skydiving</div>
+                <div class="start-preview-cell">knows sign language</div>
+                <div class="start-preview-cell">was on TV</div>
+                <div class="start-preview-cell">hidden talent</div>
+                <div class="start-preview-cell preview-marked">reads monthly</div>
+                <div class="start-preview-cell">plays an instrument</div>
+            </div>
+        </div>
+
     </div>
 </div>
 
