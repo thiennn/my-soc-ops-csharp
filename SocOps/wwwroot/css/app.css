@@ -226,3 +226,326 @@ button:disabled {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+/* ================================================================
+   VARIATION C — EVENT POSTER START SCREEN
+   ================================================================ */
+
+:root {
+    --poster-bg: #0e0e0e;
+    --poster-cream: #f5ead8;
+    --poster-red: #d42a2a;
+    --poster-red-dark: #a91e1e;
+    --poster-gold: #e8a020;
+    --poster-text: #f0e8d8;
+    --poster-muted: rgba(245, 234, 216, 0.5);
+    --poster-font: 'Syne', 'Impact', system-ui, sans-serif;
+}
+
+/* ── Screen container ── */
+.poster-screen {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    background-color: var(--poster-bg);
+    background-image:
+        radial-gradient(ellipse 80% 55% at 50% 0%, rgba(212, 42, 42, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(255, 255, 255, 0.025) 39px,
+            rgba(255, 255, 255, 0.025) 40px
+        );
+    overflow: hidden;
+    padding: 2rem 1.5rem;
+}
+
+/* ── Ambient decorative orbs ── */
+.poster-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.poster-orb-1 {
+    width: 360px;
+    height: 360px;
+    top: -120px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(212, 42, 42, 0.20) 0%, transparent 70%);
+    animation: poster-drift 11s ease-in-out infinite alternate;
+}
+
+.poster-orb-2 {
+    width: 260px;
+    height: 260px;
+    bottom: -80px;
+    left: -70px;
+    background: radial-gradient(circle, rgba(232, 160, 32, 0.12) 0%, transparent 70%);
+    animation: poster-drift 14s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Diagonal slash accent ── */
+.poster-slash {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        105deg,
+        transparent 58%,
+        rgba(212, 42, 42, 0.07) 58%,
+        rgba(212, 42, 42, 0.07) 60.5%,
+        transparent 60.5%
+    );
+}
+
+/* ── Content column ── */
+.poster-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 28rem;
+    gap: 2rem;
+}
+
+/* ── Event badge ── */
+.poster-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--poster-font);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--poster-red);
+    border: 1px solid rgba(212, 42, 42, 0.45);
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+}
+
+.poster-badge-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--poster-red);
+    animation: poster-pulse 2.2s ease-in-out infinite;
+}
+
+/* ── Hero section ── */
+.poster-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+/* ── Giant poster title ── */
+.poster-title {
+    font-family: var(--poster-font);
+    font-size: clamp(4.5rem, 24vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.88;
+    color: var(--poster-cream);
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.poster-title-accent {
+    color: var(--poster-red);
+    display: block;
+}
+
+.poster-tagline {
+    font-size: 1rem;
+    color: var(--poster-muted);
+    line-height: 1.6;
+    margin: 0;
+    border-left: 3px solid var(--poster-red);
+    padding-left: 0.85rem;
+}
+
+/* ── Steps ── */
+.poster-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    width: 100%;
+}
+
+.poster-step {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.poster-step-num {
+    font-family: var(--poster-font);
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--poster-red);
+    letter-spacing: 0.06em;
+    min-width: 1.8rem;
+    flex-shrink: 0;
+}
+
+.poster-step-text {
+    font-size: 0.9rem;
+    color: var(--poster-text);
+    line-height: 1.45;
+}
+
+/* ── CTA button ── */
+.poster-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+    background-color: var(--poster-red);
+    color: var(--poster-cream);
+    font-family: var(--poster-font);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1.1rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.poster-cta-btn:hover {
+    background-color: var(--poster-red-dark);
+}
+
+.poster-cta-btn:active {
+    transform: scale(0.98);
+}
+
+.poster-cta-btn:focus-visible {
+    outline: 3px solid var(--poster-gold);
+    outline-offset: 3px;
+}
+
+.poster-cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+    transform: translateX(-100%);
+    animation: poster-shimmer 3.8s ease-in-out infinite;
+}
+
+.poster-cta-arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.poster-cta-btn:hover .poster-cta-arrow {
+    transform: translateX(5px);
+}
+
+/* ── Entrance animations ── */
+.poster-anim-1 {
+    animation: poster-enter 0.5s ease both;
+    animation-delay: 0.1s;
+}
+
+.poster-anim-2 {
+    animation: poster-enter 0.6s ease both;
+    animation-delay: 0.25s;
+}
+
+.poster-anim-3 {
+    animation: poster-enter 0.6s ease both;
+    animation-delay: 0.45s;
+}
+
+.poster-anim-4 {
+    animation: poster-enter 0.6s ease both;
+    animation-delay: 0.6s;
+}
+
+@keyframes poster-enter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes poster-drift {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(14px, -20px) scale(1.06);
+    }
+}
+
+@keyframes poster-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes poster-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    60%, 100% {
+        transform: translateX(150%);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    .poster-content {
+        gap: 1.5rem;
+    }
+}
+
+/* ── Respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+    .poster-anim-1,
+    .poster-anim-2,
+    .poster-anim-3,
+    .poster-anim-4 {
+        animation: none;
+    }
+
+    .poster-orb-1,
+    .poster-orb-2,
+    .poster-badge-dot,
+    .poster-cta-btn::after {
+        animation: none;
+    }
+
+    .poster-cta-btn:hover .poster-cta-arrow {
+        transform: none;
+    }
+}

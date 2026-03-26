@@ -1,22 +1,42 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-    <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+<div class="poster-screen">
+    <div class="poster-orb poster-orb-1" aria-hidden="true"></div>
+    <div class="poster-orb poster-orb-2" aria-hidden="true"></div>
+    <div class="poster-slash" aria-hidden="true"></div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
-            </ul>
+    <div class="poster-content">
+        <div class="poster-badge poster-anim-1">
+            <span class="poster-badge-dot" aria-hidden="true"></span>
+            Social Icebreaker Event
         </div>
 
-        <button
-            @onclick="OnStart"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
-        </button>
+        <div class="poster-hero poster-anim-2">
+            <h1 class="poster-title" aria-label="Soc Ops">
+                SOC<span class="poster-title-accent">OPS</span>
+            </h1>
+            <p class="poster-tagline">Find your people.<br />Get five in a row.</p>
+        </div>
+
+        <ol class="poster-steps poster-anim-3">
+            <li class="poster-step">
+                <span class="poster-step-num" aria-hidden="true">01</span>
+                <span class="poster-step-text">Find people who match a square</span>
+            </li>
+            <li class="poster-step">
+                <span class="poster-step-num" aria-hidden="true">02</span>
+                <span class="poster-step-text">Tap to mark your matches</span>
+            </li>
+            <li class="poster-step">
+                <span class="poster-step-num" aria-hidden="true">03</span>
+                <span class="poster-step-text">Five in a row wins!</span>
+            </li>
+        </ol>
+
+        <div class="poster-anim-4">
+            <button @onclick="OnStart" class="poster-cta-btn">
+                Start Game
+                <span class="poster-cta-arrow" aria-hidden="true">→</span>
+            </button>
+        </div>
     </div>
 </div>
 
