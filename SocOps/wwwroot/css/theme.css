@@ -1,0 +1,208 @@
+/* =====================================================
+   NEON GRID THEME — Cyberpunk Icebreaker Bingo
+   ===================================================== */
+
+/* ── CSS custom properties ─────────────────────────── */
+:root {
+    --bg-base:       #05050f;
+    --bg-surface:    #0d0d1f;
+    --bg-card:       #111128;
+    --bg-card-hover: #181835;
+    --accent:        #00e5ff;
+    --accent-dim:    #007a9e;
+    --accent-glow:   rgba(0, 229, 255, 0.25);
+    --marked:        #39ff14;
+    --marked-dim:    #1a7a00;
+    --marked-glow:   rgba(57, 255, 20, 0.30);
+    --magenta:       #ff00c8;
+    --magenta-glow:  rgba(255, 0, 200, 0.25);
+    --text-primary:  #e0e8ff;
+    --text-muted:    #6677aa;
+    --border:        rgba(0, 229, 255, 0.18);
+    --border-bright: rgba(0, 229, 255, 0.55);
+    --font-display:  'Orbitron', 'Courier New', monospace;
+    --font-mono:     'Share Tech Mono', 'Courier New', monospace;
+    --radius:        8px;
+    --radius-lg:     14px;
+}
+
+/* ── Base ───────────────────────────────────────────── */
+html, body {
+    background: var(--bg-base) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-mono) !important;
+    min-height: 100vh;
+}
+
+/* Animated circuit-board grid background */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#app {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Override bg-accent (primary CTA blue → neon cyan) ─ */
+.bg-accent {
+    background: linear-gradient(135deg, var(--accent-dim), #005f7a) !important;
+    color: #000 !important;
+    border: 1px solid var(--accent) !important;
+    box-shadow: 0 0 16px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    font-family: var(--font-display) !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    transition: box-shadow 0.2s, transform 0.1s !important;
+}
+
+.bg-accent:hover {
+    box-shadow: 0 0 28px rgba(0, 229, 255, 0.55), 0 0 60px var(--accent-glow) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ── Override bg-marked (selected squares → neon green) ─ */
+.bg-marked {
+    background: linear-gradient(135deg, var(--marked-dim), #0d5200) !important;
+    color: var(--marked) !important;
+    border-color: var(--marked) !important;
+    box-shadow: 0 0 12px var(--marked-glow), inset 0 0 8px rgba(57,255,20,0.08) !important;
+}
+
+/* ── Override bg-white / bg-gray-50 / bg-gray-100 ──── */
+.bg-white {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.bg-gray-50 {
+    background: var(--bg-base) !important;
+}
+
+.bg-gray-100 {
+    background: var(--bg-surface) !important;
+}
+
+/* ── Text overrides ─────────────────────────────────── */
+.text-gray-900 { color: var(--text-primary) !important; }
+.text-gray-800 { color: #c0cef8 !important; }
+.text-gray-700 { color: #99aacc !important; }
+.text-gray-600 { color: #8899bb !important; }
+.text-gray-500 { color: var(--text-muted) !important; }
+.text-green-600 { color: var(--marked) !important; text-shadow: 0 0 8px var(--marked-glow); }
+.text-amber-500 { color: #ffcc00 !important; text-shadow: 0 0 8px rgba(255, 204, 0, 0.4); }
+
+/* ── Shadows & borders ──────────────────────────────── */
+.shadow-xl {
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.12), 0 8px 32px rgba(0,0,0,0.6) !important;
+}
+.shadow-sm {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.08), 0 2px 8px rgba(0,0,0,0.4) !important;
+}
+.border   { border-color: var(--border) !important; }
+.border-b { border-bottom-color: var(--border) !important; }
+.rounded-xl { border-radius: var(--radius-lg) !important; }
+.rounded-lg { border-radius: var(--radius) !important; }
+
+/* ── Typography ─────────────────────────────────────── */
+h1, h2, h3,
+.text-5xl, .text-4xl, .text-3xl, .text-2xl {
+    font-family: var(--font-display) !important;
+    letter-spacing: 0.05em;
+}
+
+.text-5xl { font-size: clamp(1.8rem, 5vw, 3rem) !important; }
+
+/* Neon heading glow */
+h1, .text-5xl {
+    color: var(--accent) !important;
+    text-shadow:
+        0 0 10px var(--accent),
+        0 0 30px var(--accent-glow),
+        0 0 60px rgba(0, 229, 255, 0.15) !important;
+}
+
+/* ── Bingo board grid ──────────────────────────────── */
+.grid-cols-5 {
+    gap: 6px !important;
+}
+
+/* ── Bingo square card style ─────────────────────────  */
+.aspect-square {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, transform 0.1s !important;
+    cursor: pointer;
+}
+
+.aspect-square:hover:not(.bg-marked) {
+    background: var(--bg-card-hover) !important;
+    border-color: var(--border-bright) !important;
+    box-shadow: 0 0 14px var(--accent-glow) !important;
+    transform: scale(1.03) !important;
+}
+
+/* ── Modal overlay ───────────────────────────────────── */
+.fixed.inset-0 {
+    background: rgba(5, 5, 20, 0.88) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* ── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 3px; }
+
+/* ── Keyframe animations ─────────────────────────────── */
+@keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 12px var(--marked-glow); }
+    50%       { box-shadow: 0 0 28px var(--marked-glow), 0 0 50px rgba(57,255,20,0.2); }
+}
+
+@keyframes glitchTitle {
+    0%, 90%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 30px var(--accent-glow); }
+    92%           { text-shadow: -2px 0 var(--magenta), 2px 0 var(--accent), 0 0 30px var(--accent-glow); }
+    94%           { text-shadow: 2px 0 var(--magenta), -2px 0 var(--accent), 0 0 30px var(--accent-glow); }
+    96%           { text-shadow: 0 0 10px var(--accent), 0 0 30px var(--accent-glow); }
+}
+
+/* Apply glitch to main heading */
+h1 {
+    animation: glitchTitle 8s infinite !important;
+}
+
+/* Marked squares pulse */
+.bg-marked {
+    animation: neonPulse 2.5s ease-in-out infinite !important;
+}
+
+/* ── Input overrides ─────────────────────────────────── */
+input, textarea, select {
+    background: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    font-family: var(--font-mono) !important;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
+    outline: none !important;
+}
+
+/* ── Responsive tweaks ──────────────────────────────── */
+@media (max-width: 480px) {
+    .grid-cols-5 { gap: 3px !important; }
+    h1, .text-5xl { font-size: 1.5rem !important; }
+}
+
